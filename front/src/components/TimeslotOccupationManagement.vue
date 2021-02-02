@@ -161,7 +161,7 @@ export default {
     const timeslotOccupationModalVisible = ref(false);
 
     function fetchData() {
-      fetch("http://localhost:8000/employee", {
+      fetch("http://localhost:8020/employee", {
         method: "get",
         headers: {
           "content-type": "application/json",
@@ -173,7 +173,7 @@ export default {
           employees.value = json.data;
         });
 
-      fetch("http://localhost:8000/timeslot", {
+      fetch("http://localhost:8020/timeslot", {
         method: "get",
         headers: {
           "content-type": "application/json",
@@ -185,7 +185,7 @@ export default {
           timeslots.value = json.data;
         });
 
-      fetch("http://localhost:8000/timeslot_occupation", {
+      fetch("http://localhost:8020/timeslot_occupation", {
         method: "get",
         headers: {
           "content-type": "application/json",
@@ -199,7 +199,7 @@ export default {
     }
 
     async function addTimeslotOccupation() {
-      await fetch("http://localhost:8000/timeslot_occupation/add", {
+      await fetch("http://localhost:8020/timeslot_occupation/add", {
         method: "POST",
         body: JSON.stringify({
           employee: employee.value,
@@ -219,7 +219,7 @@ export default {
     }
 
     async function deleteTimeslotOccupation(id) {
-      await fetch("http://localhost:8000/timeslot_occupation/" + id, {
+      await fetch("http://localhost:8020/timeslot_occupation/" + id, {
         method: "DELETE",
       });
       fetchData();

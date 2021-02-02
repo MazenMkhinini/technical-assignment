@@ -149,7 +149,7 @@ export default {
     const originalEmployees = ref([]);
     const searchText = ref("");
     function fetchData() {
-      return fetch("http://localhost:8000/employee", {
+      return fetch("http://localhost:8020/employee", {
         method: "get",
         headers: {
           "content-type": "application/json",
@@ -172,7 +172,7 @@ export default {
     }
 
     async function addEmployee() {
-      await fetch("http://localhost:8000/employee/add", {
+      await fetch("http://localhost:8020/employee/add", {
         method: "POST",
         body: JSON.stringify({
           first_name: firstName.value,
@@ -193,7 +193,7 @@ export default {
     }
 
     async function deleteEmployee(id) {
-      await fetch("http://localhost:8000/employee/" + id, { method: "DELETE" });
+      await fetch("http://localhost:8020/employee/" + id, { method: "DELETE" });
       fetchData();
     }
 

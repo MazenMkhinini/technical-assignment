@@ -132,7 +132,7 @@ export default {
     const originalTimeslots = ref([]);
     const searchText = ref("");
     function fetchData() {
-      return fetch("http://localhost:8000/timeslot", {
+      return fetch("http://localhost:8020/timeslot", {
         method: "get",
         headers: {
           "content-type": "application/json",
@@ -155,7 +155,7 @@ export default {
     }
 
     async function addTimeslot() {
-      await fetch("http://localhost:8000/timeslot/add", {
+      await fetch("http://localhost:8020/timeslot/add", {
         method: "POST",
         body: JSON.stringify({
           start: start.value,
@@ -175,7 +175,7 @@ export default {
     }
 
     async function deletetimeslot(id) {
-      await fetch("http://localhost:8000/timeslot/" + id, { method: "DELETE" });
+      await fetch("http://localhost:8020/timeslot/" + id, { method: "DELETE" });
       fetchData();
     }
 
