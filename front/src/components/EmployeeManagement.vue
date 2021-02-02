@@ -70,6 +70,12 @@
           <div
             class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10"
           >
+          <img
+              :src="CancelSvg"
+              alt=""
+              @click="hideModal"
+              class="absolute w-5 h-5 cursor-pointer position-custom"
+            />
             <div class="max-w-md mx-auto">
               <div class="flex items-center space-x-5">
                 <div
@@ -130,6 +136,7 @@
 <script>
 import { ref, onMounted, watch } from "vue";
 import DeleteSvg from "../assets/delete.svg";
+import CancelSvg from "../assets/cancel.svg"
 export default {
   name: "Employees",
   props: {},
@@ -174,6 +181,7 @@ export default {
         }),
       });
       fetchData();
+      hideModal();
     }
 
     function textChanged(text) {
@@ -202,6 +210,7 @@ export default {
       hideModal,
       showModal,
       DeleteSvg,
+      CancelSvg,
       textChanged,
       firstName,
       lastName,
@@ -214,5 +223,10 @@ export default {
 <style scoped>
 a {
   color: #42b983;
+}
+
+.position-custom {
+  top: 10px;
+  right: 10px;
 }
 </style>

@@ -163,6 +163,7 @@ export default {
         }),
       });
       fetchData();
+      hideModal();
     }
 
     function textChanged(text) {
